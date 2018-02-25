@@ -1,0 +1,49 @@
+{
+	"name": "mediawiki/parsoid-php",
+	"description": "PHP Prototype of Parsoid",
+	"keywords": ["mediawiki", "parsoid"],
+	"homepage": "https://www.mediawiki.org/wiki/Parsoid",
+	"authors": [
+		{
+			"name": "MediaWiki Community",
+			"homepage": "https://www.mediawiki.org/wiki/Parsoid"
+		}
+	],
+	"license": "GPL-2.0+",
+	"support": {
+		"irc": "irc://irc.freenode.net/parsoid",
+		"wiki": "https://www.mediawiki.org/wiki/Parsoid"
+	},
+	"require": {
+		"wikimedia/remex-html": "1.0.2"
+	},
+	"require-dev": {
+		"mediawiki/mediawiki-codesniffer": "15.0.0",
+		"phpunit/phpunit": "4.8.36"
+	},
+	"autoload": {
+		"psr-0": {
+		}
+	},
+	"scripts": {
+		"lint": "parallel-lint --exclude vendor",
+		"phpcs": "phpcs -p -s",
+		"fix": "phpcbf",
+		"test": [
+			"composer lint",
+			"composer phpcs"
+		]
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"prepend-autoloader": false
+	},
+	"extra": {
+		"merge-plugin": {
+			"include": [
+				"composer.local.json"
+			],
+			"merge-dev": false
+		}
+	}
+}
